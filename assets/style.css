@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+    background-color: cadetblue;
+}
+
+header {
+    overflow: hidden;
+    background-color: aliceblue;
+    padding: 20px 10px;
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 15px;
+    width: 100%;
+}
+
+.header-right {
+    float: right;
+    font-size: 13px;
+}
+
+.viewhighscores {
+    float: left;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+main {
+    height:100%;
+    background-color: rgba(45, 77, 75, 0.466);
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+    font-family: sans-serif;
+}
+
+.intro {
+    text-align: center;
+    color: rgb(4, 20, 19);
+    position: relative;
+}
+
+section.instructions {
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+button#start {
+    width: 40%;
+    background-color: rgb(59, 127, 190);
+    border-radius: 4%;
+    color: white;
+
+}
+
