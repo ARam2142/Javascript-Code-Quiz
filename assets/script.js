@@ -14,9 +14,10 @@ const answers = document.querySelector('#answers');
 const wrongMsg = document.querySelector('#wrong');
 const correctMsg = document.querySelector('#correct');
 //end of quiz page
-const gameOver = document.querySelector('.end-quiz');
+const endQuiz = document.querySelector('.end-quiz');
 const scores = document.querySelector('.scores-display');
 const highScore = document.querySelector('#high-score');
+const initialsInput = document.querySelector('#initials');
 
 //questions and answers 
 const questionSet = [
@@ -99,6 +100,8 @@ function nextQuestion () {
     currQuestionInd++;
     generateQuizQuestion();
   } else {
+    document.querySelector('.end-quiz').style.display = "block";
+    //document.querySelector('#initials').style.display = "block";
     displayScore();
   }
 }
@@ -130,15 +133,15 @@ function checkAnswer(e) {
 function displayScore () {
   clearInterval(timerInterval);
   timer.textContent = 0;
-
-  if(secondsLeft < 0) {
-    secondsLeft = 0;
-  }
   highScore.textContent = secondsLeft;
-
   document.querySelector('.question-page').style.display ="none";
   document.querySelector("#high-score").style.display ="block";
-  document.querySelector('.end-quiz').style.display = "block";
+  //document.querySelector('#initials').style.display = "block";
+  document.querySelector("end-quiz ").style.display ="block";
+  //if(secondsLeft < 0) {
+    //secondsLeft = 0;
+    
+  //}
 }
 
 //timer will countdown as soon as the button is clicked
@@ -163,9 +166,8 @@ function initiateQuiz() {
   document.querySelector('.intro').classList.add("hide");
   //hides start button
   document.querySelector('#start').classList.add('hide')
-  //document.querySelector('.scores-display').style.display = "hide";
+  //hides questionpage
   questionPage.classList.remove('hide');
-  //highScore.classList.remove('hide');
 
 }
 
@@ -174,7 +176,6 @@ startBtn.addEventListener("click", function() {
   startTimer();
   initiateQuiz();
   generateQuizQuestion();
-  checkAnswer();
 });
 
 

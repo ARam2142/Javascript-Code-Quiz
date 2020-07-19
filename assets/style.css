@@ -152,15 +152,21 @@ div#correct {
 }
 
 /*end of quiz screen*/
-.end-quiz {
+div.end-quiz {
     text-align: center;
     font-size: 35px;
     font-weight: bolder;
     color: rgb(105, 13, 13);
 }
 
+#initials {
+    text-align: center;
+}
+
 .hide {
     display: none;
 }
+
+
 
 
