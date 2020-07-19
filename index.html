@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -16,60 +17,54 @@
                 <span id="time">60</span>
             </div>
         </header>
-        <main>
-            <!--container will hold quiz information -->
-           <div class="quiz-container">
-            <h1>Code Quiz</h1>
-            <br>
-            <div class="intro">
-                <p>Welcome, You are about to take the 101 Javascript coding quiz. Before you continue be sure to read
-                the directions down below.</p>
-                </div>
-            <section class="instructions">
-                <p>Every question that is answered will be counted to your score. 
-                    You will have 60 seconds to answer all the questions
-                    If one question is answered wrong, 
-                    5 seconds will be subtracted from the timer, so be careful. 
-                    This quiz is multiple choice and each correct anwser is 5 points</p>
-            
-                <!--How each quiz question will appear on page-->
-                <div class="questions-div">
-                    Example:
-                    <!--user will choose-->
-                    <p>1: What color is the White House?</p>
-                    <input type="radio"  name="color"  value="white">white
-                    <input type="radio"  name="color"  value="green">green
-                    <input type="radio"  name="color"  value="black">black
-                    <input type="radio"  name="color"  value="all-of-the-above">All of the above
-
-                    <!--back and next buttons-->
-                    <button type="button" id="back">Back</button>
-                    <button type="button" id="next">Next</button>
-
-                    <!--if user gets wrong answer it will be displayed after each question-->
-                    <div id="wrong answer"></div>
-                    <!--if users answers correctly, correct answer will appear after each question-->
-                    <div id="correct"></div>
-                </div>
+        <!--quiz homepage-->
+            <main class="homepage">
+                <div class="home-container">
+                <h1>Code Quiz</h1>
                 <br>
-                <br>
-                <div>
-                    <!--start button will initiate quiz-->
-                    <button id="start"type="button">Start</button>
+                    <div class="intro">
+                        <p>Welcome, You are about to take the 101 Javascript coding quiz. Before you continue be sure to read
+                        the directions down below.
+                        Every question that is answered will be counted to your score. 
+                        You will have 60 seconds to answer all the questions
+                        If one question is answered wrong, 
+                        5 seconds will be subtracted from the timer, so be careful. 
+                        This quiz is multiple choice and each correct anwser is 5 points
+                        </p>
+                    </div>
+                </div>
+                <!--start button will initiate quiz-->
+                <button id="start" type="button">Start</button>
+            </main>
+                
+        <!--question screen-->
+            <section class="question-page hide" >
+                <div id="question-container">
+                    <p id="question"></p>
+                    <ol type="A" id="answers">
+                        <li><button type="button"  id="A"  value="answer1ChA">choiceA</button></li>
+                        <li><button type="button"  id="B"  value="answer2CHB">choiceB</button></li>
+                        <li><button type="button"  id="C"  value="answer3CHC">choiceC</button></li>
+                        <li><button type="button"  id="D"  value="answer4CHD">choiceD</button></li>
+                    </ol>
+                    <!--right or wrong-->
+                        <div id="wrong" class="hide"><p>Wrong!</p></div>
+                        <div id="correct" class="hide"><p>Correct!</p></div>
                 </div>
             </section>
-            </div>
-            <div class="end-quiz"></div>
-            <!--the scores will be displayed at the end of the game-->
-            <div class="scores"></div>
-                <br>
-                <br>
-                
-                <!--<div href ="#" id="high-score">
+
+        <!--end of the quiz screen-->
+            <section class="end-quiz hide">
+                <!--<div class="end-quiz"></div>-->
+                <!--the scores will be displayed at the end of the game-->
+                <!--<div class="scores-display"></div>-->
+                    <br>
+                    <br>
+                <div href ="#" id="high-score">
                     <p>Type your initials and save score</p>
                     <input id="initials" type="text" name="initials" maxlength="4">
-                </div>-->
-        </main>
+                </div>
+            </section>
     </body>
-
+    <script src="assets/script.js"></script>
 </html>

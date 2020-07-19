@@ -4,15 +4,16 @@
     padding: 0;
 }
 
-html, body {
+html body {
     height: 100%;
+    background-color: lightslategray
 }
 
 body {
     font-size: 16px;
-    background-color: cadetblue;
 }
 
+/*home page*/
 header {
     overflow: hidden;
     background-color: aliceblue;
@@ -38,8 +39,7 @@ header {
 }
 
 main {
-    height:100%;
-    background-color: rgba(45, 77, 75, 0.466);
+    text-align: center;
 }
 
 h1 {
@@ -48,23 +48,119 @@ h1 {
     font-family: sans-serif;
 }
 
-.intro {
+.intro p {
     text-align: center;
-    color: rgb(4, 20, 19);
-    position: relative;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+    line-height: 1;
 }
 
-section.instructions {
-    text-align: center;
-    font-size: 16px;
-    margin: 10px 10px 10px 10px;
-}
-
+/*start button*/
 button#start {
-    width: 40%;
-    background-color: rgb(59, 127, 190);
-    border-radius: 4%;
+    width: 30%;
+    background-color: whitesmoke;
+    border-radius: 3px;
+}
+
+button#start:hover {
+    color:white;
+    background-color: lightskyblue;
+}
+
+/*question screen*/
+.question-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.questions-div {
+    margin-top: 10px;
+}
+
+.question p {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight:bold;
+}
+
+button#option1 {
+    background-color: white;
+    width: 100%;
+    color: black;
+    height: 40px;
+    border-color: darkblue;
+}
+
+button#option2 {
+    background-color: white;
+    width: 100%;
+    color:black;
+    height: 40px;
+    border-color: darkblue;
+}
+
+button#option3 {
+    background-color:white;
+    border-radius: 10%;
+    color: black;
+    width: 100%;
+    height: 40px;
+    border-color: darkblue;
+}
+
+button#option4 {
+    background-color: white;
+    width: 100%;
+    color:black;
+    height: 40px;
+    border-color: darkblue;
+}
+
+button#option1:hover {
+    background-color: blue;
     color: white;
+}
+
+button#option2:hover {
+    background-color: blue;
+    color: white;
+}
+
+button#option3:hover {
+    background-color: blue;
+    color: white;
+}
+
+button#option4:hover {
+    background-color: blue;
+    color: white;
+}
+
+div#wrong {
+    color: rgb(105, 13, 13);
+    font-size: 30px;
 
 }
+
+div#correct {
+    color: rgb(58, 112, 58);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*end of quiz screen*/
+.end-quiz {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bolder;
+    color: rgb(105, 13, 13);
+}
+
+.hide {
+    display: none;
+}
+
 
