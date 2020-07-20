@@ -151,8 +151,7 @@ function displayScore () {
   highScore.textContent = secondsLeft;
   document.querySelector('.question-page').style.display ="none";
   document.querySelector("#high-score").style.display ="block";
-  //document.querySelector('#initials').style.display = "block";
-  document.querySelector("end-quiz").style.display ="block";
+  //document.querySelector("end-quiz").style.display ="block";
 }
 
 //initialize scoreslist
@@ -183,13 +182,6 @@ storageForm.addEventListener("submit", function(e) {
   e.preventDefault();
   storageForm.classList.add("hide");
   scores.classList.remove("hide");
-
-  //supposed to check users input
-  var initials = initialsInput.value.trim();
-
-  if(initials === "") {
-    return;
-  }
 });
 
 //timer will countdown as soon as the button is clicked
@@ -213,10 +205,6 @@ startBtn.addEventListener("click", function() {
   startTimer();
   initiateQuiz();
   generateQuizQuestion();
-});
-
-back.addEventListener("click", function(){
-  initiateQuiz();
 });
 
 
