@@ -106,7 +106,6 @@ function generateQuizQuestion() {
   choiceD.addEventListener('click', checkAnswer);
   
 }
-//displayQuiz();
 
 let lastQuestion = questionSet.length - 1;
 //go to next question
@@ -116,12 +115,11 @@ function nextQuestion () {
     generateQuizQuestion();
   } else {
     document.querySelector('.end-quiz').style.display = "block";
-    //document.querySelector('#initials').style.display = "block";
     displayScore();
   }
 }
 
-//function to check answer if true or false
+//function to check answer
 function checkAnswer(e) {
   //incorrect answer
   var answer = e.currentTarget.textContent;
@@ -151,7 +149,6 @@ function displayScore () {
   highScore.textContent = secondsLeft;
   document.querySelector('.question-page').style.display ="none";
   document.querySelector("#high-score").style.display ="block";
-  //document.querySelector("end-quiz").style.display ="block";
 }
 
 //initialize scoreslist
@@ -164,6 +161,7 @@ function renderScores(){
   
   //render new li for each score
   for (let i = 0; i < scoreslist.length; i++) {
+    console.log(scoreslist);
     var score = scoreslist[i];
 
     var li = document.createElement('li');
@@ -174,7 +172,7 @@ function renderScores(){
 
 function storeScores() {
   localStorage.setItem("scoreslist", JSON.stringify(scoreslist));
-  //console.log(localStorage);
+  console.log(localStorage.setItem("scoreslist", JSON.stringify(scoreslist)));
 }
 
 //submit information
