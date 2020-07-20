@@ -54,14 +54,23 @@
             </section>
 
         <!--end of the quiz screen-->
-            
+            <form id="storage-form" method="POST">
                 <div class="end-quiz hide">
-                <!--<div class="scores-display"></div>-->
-                    <p>Your final score is:</p>
+                
+                    <label>Your final score is:</label>
                     <div href ="#" id="high-score"></div>
-
-                    <input id="initials" type="text"  placeholder="Type initials here" maxlength="2">
+                    <input id="initials" type="text" value="" placeholder="Type initials here" maxlength="2">
+                    <!--form will submit data-->
+                    <button id="submit">Submit</button>
                 </div>
+            </form>
+        
+        <!--high score screen-->
+        <div class="scores-display hide">
+            <p id="highscoreslist"><span>High Scores List</span></p>
+            <ul id="score-list"></ul>
+            <button id="Back">Back</button>
+        </div>
     </body>
     <script src="assets/script.js"></script>
 </html>

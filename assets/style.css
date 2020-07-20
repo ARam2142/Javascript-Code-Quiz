@@ -163,6 +163,24 @@ div.end-quiz {
     text-align: center;
 }
 
+button#submit {
+    background-color: rgb(71, 128, 175);
+    color: white;
+}
+
+/*scores display Screen*/
+.scores-display {
+    font-size: 30px;
+    color: rgb(36, 77, 36);
+    text-align: center;
+}
+
+p#top5 {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    
+}
 .hide {
     display: none;
 }

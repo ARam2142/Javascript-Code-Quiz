@@ -15,9 +15,14 @@ const wrongMsg = document.querySelector('#wrong');
 const correctMsg = document.querySelector('#correct');
 //end of quiz page
 const endQuiz = document.querySelector('.end-quiz');
-const scores = document.querySelector('.scores-display');
 const highScore = document.querySelector('#high-score');
 const initialsInput = document.querySelector('#initials');
+const storageForm = document.querySelector('#storage-form');
+const buttonForm = document.querySelector('#submit');
+//high scores screen
+const scores = document.querySelector('.scores-display');
+let scorelist = document.querySelector('.score-list');
+let highscoreslist = document.querySelector('#highscores')
 
 //questions and answers 
 const questionSet = [
@@ -64,7 +69,6 @@ const questionSet = [
   },
 ];
 
-console.log(questionSet);
 //variables to be used
 var secondsLeft = 60;
 var timerInterval;
@@ -72,6 +76,16 @@ var currentQuestion;
 var currQuestionInd = 0;
 var finalQuestionind;
 
+//as soon as the button is clicked the first question will be displayed
+function initiateQuiz() {
+  //hides introductory paragraph on homepage
+  document.querySelector('.intro').classList.add("hide");
+  //hides start button
+  document.querySelector('#start').classList.add('hide')
+  //hides questionpage
+  questionPage.classList.remove('hide');
+
+}
 
 //load question and answers to quiz screen
 function generateQuizQuestion() {
@@ -137,12 +151,72 @@ function displayScore () {
   document.querySelector('.question-page').style.display ="none";
   document.querySelector("#high-score").style.display ="block";
   //document.querySelector('#initials').style.display = "block";
-  document.querySelector("end-quiz ").style.display ="block";
-  //if(secondsLeft < 0) {
-    //secondsLeft = 0;
-    
-  //}
+  document.querySelector("end-quiz").style.display ="block";
 }
+
+//eventlistener for button Form
+//buttonForm.addEventListener("click", function (e){
+ 
+//});
+
+var scoreslist= [];
+
+//update the the scores count
+//function renderScores(){
+
+  scoreslist.innerHTML = "";
+  //console.log(scoreslist.innerHTML)
+  highscoreslist.textContent = scoreslist.length;
+  console.log(highscoreslist.textContent);
+  
+  //render new li for each score
+  for (let i = 0; i < scoreslist.length; i++) {
+    var score = scoreslist[i];
+    console.log(scoreslist)
+
+    var li = document.createElement('li');
+    li.textContent = score;
+    li.setAttribute("data-index", i);
+
+    var button = document.createElement("button");
+    button.textContent = "back";
+
+    li.appendChild(button);
+    scorelist.appendChild(li);
+  }
+//}
+
+function init() {
+  //get stored initials and scores
+  //parse JSON string to an object
+  var storedScores = JSON.parse(localStorage.getItem("scoreslist"));
+
+  if(storedScores !== null) {
+    scoreslist = storedScores;
+  }
+  rendorScores();
+}
+
+function storeScores() {
+  localStorage.setItem("scoreslist", JSON.stringify(scoreslist));
+  console.log(localStorage);
+}
+
+storageForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  storageForm.classList.add("hide");
+  scores.classList.remove("hide");
+
+  var initials = initialsInput.value.trim();
+
+  if(initials === "") {
+    return;
+  }
+  storeScores();
+  renderScores();
+});
+
+
 
 //timer will countdown as soon as the button is clicked
 function startTimer() {
@@ -158,17 +232,6 @@ function startTimer() {
       }
   
     }, 1000);
-}
-
-//as soon as the button is clicked the first question will be displayed
-function initiateQuiz() {
-  //hides introductory paragraph on homepage
-  document.querySelector('.intro').classList.add("hide");
-  //hides start button
-  document.querySelector('#start').classList.add('hide')
-  //hides questionpage
-  questionPage.classList.remove('hide');
-
 }
 
 //start button
