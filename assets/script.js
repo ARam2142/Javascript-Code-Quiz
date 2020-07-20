@@ -23,6 +23,7 @@ const buttonForm = document.querySelector('#submit');
 const scores = document.querySelector('.scores-display');
 let scorelist = document.querySelector('.score-list');
 let highscoreslist = document.querySelector('#highscores')
+const back = document.querySelector('#back');
 
 //questions and answers 
 const questionSet = [
@@ -154,69 +155,42 @@ function displayScore () {
   document.querySelector("end-quiz").style.display ="block";
 }
 
-//eventlistener for button Form
-//buttonForm.addEventListener("click", function (e){
- 
-//});
-
+//initialize scoreslist
 var scoreslist= [];
 
 //update the the scores count
-//function renderScores(){
-
+function renderScores(){
   scoreslist.innerHTML = "";
   //console.log(scoreslist.innerHTML)
-  highscoreslist.textContent = scoreslist.length;
-  console.log(highscoreslist.textContent);
   
   //render new li for each score
   for (let i = 0; i < scoreslist.length; i++) {
     var score = scoreslist[i];
-    console.log(scoreslist)
 
     var li = document.createElement('li');
     li.textContent = score;
-    li.setAttribute("data-index", i);
-
-    var button = document.createElement("button");
-    button.textContent = "back";
-
-    li.appendChild(button);
-    scorelist.appendChild(li);
+    li.setAttribute("data", i);
   }
-//}
-
-function init() {
-  //get stored initials and scores
-  //parse JSON string to an object
-  var storedScores = JSON.parse(localStorage.getItem("scoreslist"));
-
-  if(storedScores !== null) {
-    scoreslist = storedScores;
-  }
-  rendorScores();
 }
 
 function storeScores() {
   localStorage.setItem("scoreslist", JSON.stringify(scoreslist));
-  console.log(localStorage);
+  //console.log(localStorage);
 }
 
+//submit information
 storageForm.addEventListener("submit", function(e) {
   e.preventDefault();
   storageForm.classList.add("hide");
   scores.classList.remove("hide");
 
+  //supposed to check users input
   var initials = initialsInput.value.trim();
 
   if(initials === "") {
     return;
   }
-  storeScores();
-  renderScores();
 });
-
-
 
 //timer will countdown as soon as the button is clicked
 function startTimer() {
@@ -239,6 +213,10 @@ startBtn.addEventListener("click", function() {
   startTimer();
   initiateQuiz();
   generateQuizQuestion();
+});
+
+back.addEventListener("click", function(){
+  initiateQuiz();
 });
 
 
