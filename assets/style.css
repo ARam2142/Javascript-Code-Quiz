@@ -57,11 +57,13 @@ h1 {
     line-height: 1;
 }
 
-/*start button*/
 button#start {
-    width: 30%;
-    background-color: whitesmoke;
-    border-radius: 3px;
+    width: 80%;
+    height: 110%;
+    background-color: rgb(26, 77, 189);
+    border-radius: 15px;
+    border-color: white;
+    color: whitesmoke;
 }
 
 button#start:hover {
@@ -76,6 +78,20 @@ button#start:hover {
   justify-content: center;
 }
 
+button#A {
+    margin-bottom:10px;
+}
+
+button#B {
+    margin-bottom:10px;
+}
+button#C {
+    margin-bottom:10px;
+}
+button#D {
+    margin-bottom:10px;
+}
+
 div.questions-div {
     margin-top: 10px;
 }
@@ -84,59 +100,6 @@ div.questions-div {
     margin-right: 10px;
     font-size: 18px;
     font-weight:bold;
-}
-
-button#option1 {
-    background-color: white;
-    width: 100%;
-    color: black;
-    height: 40px;
-    border-color: darkblue;
-}
-
-button#option2 {
-    background-color: white;
-    width: 100%;
-    color:black;
-    height: 40px;
-    border-color: darkblue;
-}
-
-button#option3 {
-    background-color:white;
-    border-radius: 10%;
-    color: black;
-    width: 100%;
-    height: 40px;
-    border-color: darkblue;
-}
-
-button#option4 {
-    background-color: white;
-    width: 100%;
-    color:black;
-    height: 40px;
-    border-color: darkblue;
-}
-
-button#option1:hover {
-    background-color: blue;
-    color: white;
-}
-
-button#option2:hover {
-    background-color: blue;
-    color: white;
-}
-
-button#option3:hover {
-    background-color: blue;
-    color: white;
-}
-
-button#option4:hover {
-    background-color: blue;
-    color: white;
 }
 
 div#wrong {
@@ -169,6 +132,12 @@ button#submit {
 }
 
 /*scores display Screen*/
+.mainscreen {
+    float: left;
+    font-weight: bold;
+    font-size: 17px;
+}
+
 .scores-display {
     font-size: 30px;
     color: rgb(36, 77, 36);

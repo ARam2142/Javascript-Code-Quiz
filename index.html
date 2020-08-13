@@ -12,6 +12,7 @@
         <header>
             <!--high score link-->
             <a href="#" class="viewhighscores">View High Scores</a>
+            <a href="index.html" class="mainscreen hide">Main Screen</a>
             <!--The timer will count down from 60 to 0-->
             <div class="header-right">Time Remaining: 
                 <span id="time">60</span>
@@ -20,8 +21,9 @@
         <!--quiz homepage-->
             <main class="homepage">
                 <div class="home-container">
-                <h1>Code Quiz</h1>
-                <br>
+                    
+                    <h1>Code Quiz</h1>
+                    <br>
                     <div class="intro">
                         <p>Welcome, You are about to take the 101 Javascript coding quiz. Before you continue be sure to read
                         the directions down below.
@@ -32,9 +34,14 @@
                         This quiz is multiple choice and each correct anwser is 5 points
                         </p>
                     </div>
+                    
                 </div>
                 <!--start button will initiate quiz-->
-                <button id="start" type="button">Start</button>
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <button type="button" id="start">Start</button>
+                    </div>
+                  </div>
             </main>
                 
         <!--question screen-->
@@ -42,10 +49,10 @@
                 <div id="question-container">
                     <p id="question"></p>
                     <ol type="A" id="answers">
-                        <li><button type="button"  id="A"  value="answer1ChA">choiceA</button></li>
-                        <li><button type="button"  id="B"  value="answer2CHB">choiceB</button></li>
-                        <li><button type="button"  id="C"  value="answer3CHC">choiceC</button></li>
-                        <li><button type="button"  id="D"  value="answer4CHD">choiceD</button></li>
+                        <li><button type="button" class="btn btn-primary btn-lg btn-block" id="A"  value="answer1ChA">choiceA</button></li>
+                        <li><button type="button" class="btn btn-primary btn-lg btn-block" id="B"  value="answer2CHB">choiceB</button></li>
+                        <li><button type="button" class="btn btn-primary btn-lg btn-block" id="C"  value="answer3CHC">choiceC</button></li>
+                        <li><button type="button" class="btn btn-primary btn-lg btn-block" id="D"  value="answer4CHD">choiceD</button></li>
                     </ol>
                     <!--right or wrong-->
                         <div id="wrong" class="hide"><p>Wrong!</p></div>
@@ -59,18 +66,19 @@
                 
                     <label>Your final score is:</label>
                     <div href ="#" id="high-score"></div>
-                    <input id="initials" type="text" value="" placeholder="Type initials here" maxlength="2">
+                    <input id="initials" type="text" value="" placeholder="Type initials here" maxlength="3">
                     <!--form will submit data-->
                     <button id="submit" type="submit">Submit</button>
                 </div>
             </form>
         
-        <!--high score screen-->
+        <!--view high score screen-->
         <div class="scores-display hide">
             <p id="highscoreslist"><span>High Scores List</span></p>
             <ul id="score-list"></ul>
-            <button id="back">Back</button>
+            <a href="index.html" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Main Menu</a>
         </div>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/script.js"></script>
 </html>
