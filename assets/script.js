@@ -19,13 +19,12 @@ const endQuiz = document.querySelector('.end-quiz');
 const highScore = document.querySelector('#high-score');
 const storageForm = document.querySelector('#storage-form');
 let initialsInput = document.querySelector('#initials').value;
-//const buttonForm = document.querySelector('.submit');
 
 //high scores screen
 const mainScreen = document.querySelector('.mainscreen');
 const deleteBtn = document.querySelector('#delete');
 const scores = document.querySelector('.scores-display');
-let scoreList = document.querySelector('#score-list');
+const scoreList = document.querySelector('#score-list');
 let highscoreslist = document.querySelector('#highscores')
 
 //questions and answers 
@@ -165,7 +164,7 @@ function checkAnswer(e) {
   var answerKey = questionSet[currQuestionInd].correctAnswer;
   
   if (answer !== questionSet[currQuestionInd][answerKey]) {
-    secondsLeft-=5;
+    secondsLeft-=10;
     wrongMsg.style.display = "block";
     setTimeout(function (){
       wrongMsg.style.display = "none";
@@ -199,7 +198,6 @@ function checkAnswer(e) {
     scores.classList.remove("hide");
     highScores.classList.add("hide");
     mainScreen.classList.remove("hide");
-    //localStorage.setItem('scores', JSON.stringify(userScore));
     saveScores();
     renderScores();
   });
@@ -217,7 +215,6 @@ function checkAnswer(e) {
       scoresArray = [];
     } else {
       scoresArray = JSON.parse(scoresArray);
-      //console.log(scoresArray);
     }
     initials = document.querySelector('#initials').value;
     const userScore = { initials, score: secondsLeft };
@@ -250,28 +247,8 @@ function checkAnswer(e) {
     } 
   }
   
-  
-  //compare scores
-  //function compareScores() {
-  
-  //sort the scores from highest to lowest
-  //userScores.sort(compareScores);
-  //console.log(userScores.sort(compareScores))
-  
-  
-  
-  
-  //return the value of userscore in storage
-  /*function retrieveScores() {
-    var storedScores = JSON.parse(localStorage.getItem('scores'));
-    console.log(storedScores);
-    
-    let scores;
-    
-    if (localStorage.getItem('scores')) {
-      scores = JSON.parse(localStorage.getItem('scores')) 
-    } else {
-      scores = []
-    }
-  }
-  retrieveScores();*/
+  deleteBtn.addEventListener('click', function() {
+    console.log('click')
+    scoreList.classList.add('hide');
+    localStorage.clear();
+  });
