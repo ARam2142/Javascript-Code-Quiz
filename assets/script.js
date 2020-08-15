@@ -17,14 +17,15 @@ const correctMsg = document.querySelector('#correct');
 //end of quiz page
 const endQuiz = document.querySelector('.end-quiz');
 const highScore = document.querySelector('#high-score');
-const initialsInput = document.querySelector('#initials');
 const storageForm = document.querySelector('#storage-form');
-const buttonForm = document.querySelector('#submit');
+let initialsInput = document.querySelector('#initials').value;
+//const buttonForm = document.querySelector('.submit');
 
 //high scores screen
 const mainScreen = document.querySelector('.mainscreen');
+const deleteBtn = document.querySelector('#delete');
 const scores = document.querySelector('.scores-display');
-let scorelist = document.querySelector('.score-list');
+let scoreList = document.querySelector('#score-list');
 let highscoreslist = document.querySelector('#highscores')
 
 //questions and answers 
@@ -63,7 +64,7 @@ const questionSet = [
     correctAnswer: "optionD"
   },
   {
-    question: "Where is the correct place to insert a JavaScript?",
+    question: "Where is the correct place to insert a JavaScript file?",
     optionA: "The <body> section",
     optionB: "The <head> section",
     optionC: "css file",
@@ -72,6 +73,7 @@ const questionSet = [
   },
 ];
 
+//high scores link
 highScores.addEventListener("click", function () {
   highScores.classList.add("hide");
   document.querySelector('.intro').classList.add("hide");
@@ -79,6 +81,7 @@ highScores.addEventListener("click", function () {
   mainScreen.classList.remove("hide");
   scores.classList.remove("hide");
   storageForm.classList.add("hide");
+  renderScores();
 })
 
 //start button
@@ -187,13 +190,8 @@ function checkAnswer(e) {
     document.querySelector('.question-page').style.display ="none";
     document.querySelector("#high-score").style.display ="block";
     highScores.classList.remove("hide");
-    //storageForm.classList.add("hide");
-    //document.querySelector("#time").style.display ="none";
   }
   
-  //initialize initials input
-  let initials = "";
-
   //submit information
   storageForm.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -201,21 +199,79 @@ function checkAnswer(e) {
     scores.classList.remove("hide");
     highScores.classList.add("hide");
     mainScreen.classList.remove("hide");
+    //localStorage.setItem('scores', JSON.stringify(userScore));
+    saveScores();
+    renderScores();
   });
+  
+  //score starts at 0
+  let score = 0;
+  
+  //initialize userScore to add scores to li and save in local storage
+  let scoresArray;
+  
+  //save to local storage and stringify then parse when taking out scores
+  function saveScores() {
+    scoresArray = localStorage.getItem("savedScores");
+    if (!scoresArray) {
+      scoresArray = [];
+    } else {
+      scoresArray = JSON.parse(scoresArray);
+      //console.log(scoresArray);
+    }
+    initials = document.querySelector('#initials').value;
+    const userScore = { initials, score: secondsLeft };
+    scoresArray.push(userScore);
+    localStorage.setItem("savedScores", JSON.stringify(scoresArray));
+  }
+ 
+  
+  //render scores for each value entered
+  function renderScores() {
+    scoresArray = localStorage.getItem("savedScores");
+    if (scoresArray === null) {
+      scoresArray = [];
+    } else {
+      scoresArray = JSON.parse(scoresArray);
+    }
 
-  function displayHighScores () {
-    document.querySelector('.viewhighscores').style.display = "none";
-}
+    //sort arrays from highest to low
+    scoresArray.sort(function(a, b) {return b.score - a.score});
+    addScoreRows();
+  }
 
-//initialize scoreslist
-var scoreslist= [];
-
-//update the the scores count
-function renderScores(){
-  scoreslist.innerHTML = "";
-}
-
-
-
-
-
+  //render new scores in lis
+  function addScoreRows() {
+    for (let i = 0; i < scoresArray.length; i++) {
+      var newLi = document.createElement("li");
+      console.log(newLi);
+      newLi.textContent = `${scoresArray[i].initials} - ${scoresArray[i].score}`;
+      scoreList.appendChild(newLi);
+    } 
+  }
+  
+  
+  //compare scores
+  //function compareScores() {
+  
+  //sort the scores from highest to lowest
+  //userScores.sort(compareScores);
+  //console.log(userScores.sort(compareScores))
+  
+  
+  
+  
+  //return the value of userscore in storage
+  /*function retrieveScores() {
+    var storedScores = JSON.parse(localStorage.getItem('scores'));
+    console.log(storedScores);
+    
+    let scores;
+    
+    if (localStorage.getItem('scores')) {
+      scores = JSON.parse(localStorage.getItem('scores')) 
+    } else {
+      scores = []
+    }
+  }
+  retrieveScores();*/
