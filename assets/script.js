@@ -18,7 +18,7 @@ const correctMsg = document.querySelector('#correct');
 const endQuiz = document.querySelector('.end-quiz');
 const highScore = document.querySelector('#high-score');
 const storageForm = document.querySelector('#storage-form');
-let initialsInput = document.querySelector('#initials').value;
+//let initialsInput = document.querySelector('#initials').value;
 
 //high scores screen
 const mainScreen = document.querySelector('.mainscreen');
@@ -216,6 +216,7 @@ function checkAnswer(e) {
     } else {
       scoresArray = JSON.parse(scoresArray);
     }
+    //worked on with tutor
     initials = document.querySelector('#initials').value;
     const userScore = { initials, score: secondsLeft };
     scoresArray.push(userScore);
@@ -225,6 +226,7 @@ function checkAnswer(e) {
   
   //render scores for each value entered
   function renderScores() {
+    //worked on with tutor
     scoresArray = localStorage.getItem("savedScores");
     if (scoresArray === null) {
       scoresArray = [];
@@ -233,7 +235,9 @@ function checkAnswer(e) {
     }
 
     //sort arrays from highest to low
-    scoresArray.sort(function(a, b) {return b.score - a.score});
+    scoresArray.sort(function(a, b) {
+      return b.score - a.score
+    });
     addScoreRows();
   }
 
@@ -241,12 +245,12 @@ function checkAnswer(e) {
   function addScoreRows() {
     for (let i = 0; i < scoresArray.length; i++) {
       var newLi = document.createElement("li");
-      console.log(newLi);
       newLi.textContent = `${scoresArray[i].initials} - ${scoresArray[i].score}`;
       scoreList.appendChild(newLi);
     } 
   }
   
+  //delete local storage
   deleteBtn.addEventListener('click', function() {
     console.log('click')
     scoreList.classList.add('hide');

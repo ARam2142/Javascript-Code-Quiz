@@ -154,6 +154,13 @@ p#top5 {
     display: none;
 }
 
+input#submit {
+    background-color: rgb(53, 153, 187);
+    border-radius: 15px;
+    padding:5px;
+    color: white;
+}
+
 
 
 
