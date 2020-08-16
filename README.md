@@ -20,8 +20,8 @@ ______________________________________________________________
 Screenshots:
 ![Screen Shot 2020-08-15 at 7 49 30 PM](https://user-images.githubusercontent.com/65634748/90323535-a487aa00-df30-11ea-9e1a-8c51d1abd39a.png)
 ![Screen Shot 2020-08-15 at 7 49 38 PM](https://user-images.githubusercontent.com/65634748/90323534-a487aa00-df30-11ea-9dcb-1651acb4cdb7.png)
-![Screen Shot 2020-08-15 at 7 51 36 PM](https://user-images.githubusercontent.com/65634748/90323562-d4cf4880-df30-11ea-95c0-f7c10a8e24b6.png)
-![Screen Shot 2020-08-15 at 7 50 27 PM](https://user-images.githubusercontent.com/65634748/90323533-a3ef1380-df30-11ea-9dc0-8c00d8143d46.png)
+![Screen Shot 2020-08-15 at 8 22 44 PM](https://user-images.githubusercontent.com/65634748/90323870-2083f100-df35-11ea-9f76-4dc4c4248349.png)
+![Screen Shot 2020-08-15 at 7 51 36 PM](https://user-images.githubusercontent.com/65634748/90323533-a3ef1380-df30-11ea-9dc0-8c00d8143d46.png)
 
 
 https://aram2142.github.io/Javascript-Code-Quiz/
