@@ -28,6 +28,4 @@ ______________________________________________________________
 https://aram2142.github.io/Javascript-Code-Quiz/
 
 # License
-
-[![license information](https://img.shields.io/badge/license-MIT-blue)](https://aram2142.github.io/Javascript-Code-Quiz/)
-
+Licensed under the [MIT License](LICENSE)
