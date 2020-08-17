@@ -70,6 +70,14 @@ const questionSet = [
     optionD: "Both the <head> section and the <body>",
     correctAnswer: "optionD"
   },
+  {
+    question: "How to write an IF statement in JavaScript?",
+    optionA: "if i==5 then",
+    optionB: "if(i == 5)",
+    optionC: "if i = 5",
+    optionD: "if i = 5 then",
+    correctAnswer: "optionB"
+  },
 ];
 
 //high scores link
